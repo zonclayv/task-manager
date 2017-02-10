@@ -1,0 +1,33 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "pretest": "jshint .",
+    "postinstall": "bower install",
+    "start": "node .",
+    "test": "tape tests/**/*.js"
+  },
+  "dependencies": {
+    "async": "^2.1.2",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "loopback": "^3.0.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^2.4.0",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^1.0.1",
+    "loopback-cascade-delete-mixin": "1.0.1",
+    "loopback-component-storage-mongo": "^1.5.1"
+  },
+  "devDependencies": {
+    "bower": "^1.5.2",
+    "jshint": "^2.5.6",
+    "tape": "^4.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/zonclayv/task-manager"
+  },
+  "license": "UNLICENSED"
+}

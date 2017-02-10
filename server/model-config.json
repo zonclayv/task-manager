@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins",
+      "../node_modules/loopback-cascade-delete-mixin"
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "mydb",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mydb",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mydb",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mydb",
+    "public": false
+  },
+  "user": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "Task": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "TaskGroup": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "Container": {
+    "dataSource": "container",
+    "public": true
+  }
+}

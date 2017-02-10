@@ -1,0 +1,81 @@
+body {
+  padding-top: 50px
+}
+
+.glyphicon-remove:hover {
+  cursor: pointer
+}
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.main-box {
+  background: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+  -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+  -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+  -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+  box-shadow: 1px 1px 2px 0 #CCCCCC;
+  margin-bottom: 16px;
+  -webikt-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.user-info-box {
+  background: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 2px 1px #CCCCCC;
+  -moz-box-shadow: 1px 1px 2px 1px #CCCCCC;
+  -o-box-shadow: 1px 1px 2px 1px #CCCCCC;
+  -ms-box-shadow: 1px 1px 2px 1px #CCCCCC;
+  box-shadow: 1px 1px 2px 1px #CCCCCC;
+  margin-bottom: 16px;
+  -webikt-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.table a.table-link {
+  font-size: 1.2em;
+}
+
+.label {
+  border-radius: 3px;
+  font-size: 0.875em;
+  font-weight: 600;
+}
+
+.user-list tbody td .user-subhead {
+  font-size: 0.875em;
+  font-style: italic;
+}
+
+.user-list tbody td > img {
+  position: relative;
+  max-width: 50px;
+  float: left;
+  margin-right: 15px;
+}
+
+.table tbody tr td:first-child {
+  font-size: 1.125em;
+  font-weight: 300;
+}
+
+.table tbody tr td {
+  font-size: 0.875em;
+  vertical-align: middle;
+  border-top: 1px solid #e7ebee;
+  padding: 12px 8px;
+}
+
+.list-item:hover {
+  cursor: pointer;
+}
+
+.task-title {
+  font-size: 1.3em;
+  font-weight: 400;
+}

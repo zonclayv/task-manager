@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-4" ng-show="taskGroups">
+    <div class=" row border-bottom padding-sm" style="height: 40px;">
+      Groups
+    </div>
+    <div class="list-group">
+      <a class="list-group-item list-item clearfix" ng-repeat="group in taskGroups" ng-click="getTasks(group);">
+        <div class="row">
+          <span class="task-title">{{group.title}}</span>
+          <span class="pull-right">
+            <span class="btn btn-xs btn-default" ng-click="markAsCompleted(group);">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </span>
+          </span>
+        </div>
+        <p class="list-group-item-text">Owner: {{group.user.email}}</p>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-8" ng-show="tasks">
+    <div class=" row border-bottom padding-sm" style="height: 40px;">
+      Tasks
+    </div>
+    <div class="list-group">
+      <a class="list-group-item clearfix" ng-class="task.status == 1 ? 'list-group-item-success': ''"
+         ng-repeat="task in tasks">
+        <div class="row">
+          <span class="task-title">{{task.title}}</span>
+          <span class="pull-right">
+            <span class="btn btn-xs btn-default" ng-show="task.status == 0"
+                  ui-sref="edit-task({ userId: currentGroup.user.id, id: task.id })">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </span>
+            <span class="btn btn-xs btn-default" ng-show="task.status == 0" ng-click="complete(task);">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </span>
+          </span>
+        </div>
+        <p class="list-group-item-text">{{task.description}}</p>
+      </a>
+    </div>
+  </div>
+</div>
