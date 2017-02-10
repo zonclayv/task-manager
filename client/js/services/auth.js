@@ -2,6 +2,12 @@ angular
   .module('app')
   .factory('AuthService', ['User', '$q', '$rootScope', '$state', function (User, $q, $rootScope, $state) {
 
+    function checkAuthority() {
+      User.getRoles({id: $rootScope.currentUser.id}, function (response) {
+        $rootScope.currentUser.hasAdminAuthority = (response.roles.indexOf('admin') !== -1);
+      });
+    }
+
     function login(email, password) {
       return User
         .login({email: email, password: password})
@@ -14,10 +20,7 @@ angular
             email: email
           };
 
-          User.getRoles({id: $rootScope.currentUser.id}, function (response) {
-            $rootScope.currentUser.hasAdminAuthority = (response.roles.indexOf('admin') !== -1);
-          });
-
+          checkAuthority();
         });
     }
 
@@ -48,9 +51,7 @@ angular
             email: userResource.email
           };
 
-          User.getRoles({id: $rootScope.currentUser.id}, function (response) {
-            $rootScope.currentUser.hasAdminAuthority = (response.roles.indexOf('admin') !== -1);
-          });
+          checkAuthority();
         });
     }
 
