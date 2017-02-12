@@ -79,3 +79,7 @@ body {
   font-size: 1.3em;
   font-weight: 400;
 }
+
+.avatar{
+  max-width: 150px;
+}

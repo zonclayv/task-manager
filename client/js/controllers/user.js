@@ -106,10 +106,8 @@ angular
       };
 
     }])
-  .controller('ProfileController', ['$stateParams', '$scope', 'User', '$state',
-    function ($stateParams, $scope, User, $state) {
-
-      $scope.selectedUser;
+  .controller('ProfileController', ['$stateParams', '$scope', 'User', '$state', 'FileUploader', 'Container',
+    function ($stateParams, $scope, User, $state, FileUploader, Container) {
 
       function getCurrentUser() {
         User
@@ -117,37 +115,80 @@ angular
           .$promise
           .then(function (result) {
             $scope.selectedUser = result;
+            uploader.url = '/api/containers/' + result.id + '/upload';
+            if (result.picture) {
+              $scope.userImg = '/api/containers/' + result.id + '/download/' + result.picture;
+            }
+          });
+      }
+
+      function saveUser(userId, props) {
+        User.updateAll(
+          {where: {id: userId}},
+          props,
+          function (err, results) {
+            getCurrentUser();
           });
       }
 
       getCurrentUser();
 
-      $scope.imgChanged = function (element) {
-        var file = element.files[0];
-        User
-          .uploadImg({user: $scope.selectedUser.id}, {ctx: file})
-          .$promise
-          .then(function () {
-            console.log('file uploaded!');
+      var newImageItem;
+
+      var uploader = $scope.uploader = new FileUploader({
+        scope: $scope,
+        url: '',
+        formData: [
+          {key: 'value'}
+        ]
+      });
+
+      uploader.filters.push({
+        name: 'filterName',
+        fn: function (item, options) {
+          console.info('filter2');
+          return true;
+        }
+      });
+
+      uploader.onAfterAddingFile = function (item) {
+        newImageItem = item;
+      };
+
+      uploader.onSuccessItem = function (item, response, status, headers) {
+        newImageItem = null;
+
+        if (response.result[0]._id) {
+
+          var user = $scope.selectedUser;
+
+          if (user.picture) {
+            Container.removeFile({container: user.id, file: user.picture});
+          }
+
+          saveUser(user.id, {
+            picture: response.result[0].filename
           });
+        }
       };
 
       $scope.saveUser = function () {
+
+        if (newImageItem) {
+          newImageItem.upload();
+        }
+
         var user = $scope.selectedUser;
-        User.updateAll(
-          {where: {id: user.id}},
-          {
-            firstname: user.firstname,
-            lastname: user.lastname,
-            email: user.email
-          },
-          function (err, results) {
-            getCurrentUser();
-          }
-        );
+
+        saveUser(user.id, {
+          firstname: user.firstname,
+          lastname: user.lastname,
+          email: user.email
+        });
       };
 
       $scope.cancel = function () {
+        newImageItem = null;
         getCurrentUser();
       };
 

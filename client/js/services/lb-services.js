@@ -1159,45 +1159,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            /**
-             * @ngdoc method
-             * @name lbServices.User#uploadImg
-             * @methodOf lbServices.User
-             *
-             * @description
-             *
-             * Uploads a file
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `user` – `{string=}` -
-             *
-             *  - `ctx` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `User` object.)
-             * </em>
-             */
-            "uploadImg": {
-              url: urlBase + "/users/uploadImg",
-              method: "POST",
-            },
-
             // INTERNAL. Use TaskGroup.user() instead.
             "::get::TaskGroup::user": {
               url: urlBase + "/TaskGroups/:id/user",
