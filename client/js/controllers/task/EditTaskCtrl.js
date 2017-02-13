@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('EditTaskController',
+  .controller('EditTaskCtrl',
   ['$scope', '$q', 'TaskGroup', 'Task', '$stateParams', '$state',
    function ($scope, $q, TaskGroup, Task, $stateParams, $state) {
      $scope.action = 'Edit';

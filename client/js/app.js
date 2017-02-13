@@ -4,13 +4,12 @@ angular
     'lbServices',
     'angularFileUpload'
   ])
-  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
-      $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('add-task', {
         url: '/add-task',
         templateUrl: 'views/task-form.html',
-        controller: 'AddTaskController',
+        controller: 'AddTaskCtrl',
         authenticate: true
       })
       .state('home', {
@@ -20,24 +19,24 @@ angular
       .state('add-task-group', {
         url: '/add-task-group',
         templateUrl: 'views/task-group-form.html',
-        controller: 'AddTaskGroupController',
+        controller: 'AddTaskGroupCtrl',
         authenticate: true
       })
       .state('all-tasks', {
         url: '/all-tasks',
         templateUrl: 'views/all-tasks.html',
-        controller: 'AllTasksController',
+        controller: 'AllTasksCtrl',
         authenticate: true
       })
       .state('edit-task', {
         url: '/edit-task/:id/:userId',
         templateUrl: 'views/task-form.html',
-        controller: 'EditTaskController',
+        controller: 'EditTaskCtrl',
         authenticate: true
       })
       .state('delete-task', {
         url: '/delete-task/:id',
-        controller: 'DeleteTaskController',
+        controller: 'DeleteTaskCtrl',
         authenticate: true
       })
       .state('forbidden', {
@@ -47,22 +46,22 @@ angular
       .state('sign-in', {
         url: '/sign-in',
         templateUrl: 'views/sign-in-form.html',
-        controller: 'AuthLoginController'
+        controller: 'AuthLoginCtrl'
       })
       .state('logout', {
         url: '/logout',
-        controller: 'AuthLogoutController'
+        controller: 'AuthLogoutCtrl'
       })
       .state('my-tasks', {
         url: '/my-tasks',
         templateUrl: 'views/my-tasks.html',
-        controller: 'MyTasksController',
+        controller: 'MyTasksCtrl',
         authenticate: true
       })
       .state('sign-up', {
         url: '/sign-up',
         templateUrl: 'views/sign-up-form.html',
-        controller: 'SignUpController',
+        controller: 'SignUpCtrl',
       })
       .state('sign-up-success', {
         url: '/sign-up/success',
@@ -71,33 +70,36 @@ angular
       .state('all-users', {
         url: '/all-users',
         templateUrl: 'views/all-users.html',
-        controller: 'AllUsersController',
+        controller: 'AllUsersCtrl',
         authenticate: true
       })
       .state('profile', {
         url: '/profile/:id',
         templateUrl: 'views/user-info.html',
-        controller: 'ProfileController',
+        controller: 'ProfileCtrl',
         authenticate: true
       });
+
     $urlRouterProvider.otherwise('home');
+
   }])
-  .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService', function($rootScope, $state, LoopBackAuth, AuthService) {
-    $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
+  .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService',
+        function ($rootScope, $state, LoopBackAuth, AuthService) {
+          $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
 
-      if (toState.authenticate && !LoopBackAuth.accessTokenId) {
-        event.preventDefault();
+            if (toState.authenticate && !LoopBackAuth.accessTokenId) {
+              event.preventDefault();
 
-        $rootScope.returnTo = {
-          state: toState,
-          params: toParams
-        };
+              $rootScope.returnTo = {
+                state: toState,
+                params: toParams
+              };
 
-        $state.go('forbidden');
-      }
-    });
+              $state.go('forbidden');
+            }
+          });
 
-    if (LoopBackAuth.accessTokenId && !$rootScope.currentUser) {
-      AuthService.refresh(LoopBackAuth.accessTokenId);
-    }
-  }]);
+          if (LoopBackAuth.accessTokenId && !$rootScope.currentUser) {
+            AuthService.refresh(LoopBackAuth.accessTokenId);
+          }
+        }]);

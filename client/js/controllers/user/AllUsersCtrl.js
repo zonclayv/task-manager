@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('AllUsersController', ['$scope', 'User', function ($scope, User) {
+  .controller('AllUsersCtrl', ['$scope', 'User', function ($scope, User) {
 
     function getUsers() {
       User
@@ -23,8 +23,7 @@ angular
     };
 
     $scope.getAvatar = function (user) {
-      return '/api/containers/' + user.id + '/download/'
-             + user.picture;
-    }
+      return '/api/containers/' + user.id + '/download/' + user.picture;
+    };
 
   }]);

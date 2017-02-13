@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('AddTaskController',
+  .controller('AddTaskCtrl',
   ['AuthService', '$scope', 'TaskGroup', 'Task', '$state',
    function (AuthService, $scope, TaskGroup, Task, $state) {
      $scope.action = 'Add';
@@ -10,15 +10,16 @@ angular
 
      TaskGroup
        .find({
-         where: {
-           userId: AuthService.getCurrentUser().id
+         filter: {
+           where: {
+             userId: AuthService.getCurrentUser().id
+           }
          }
        })
        .$promise
        .then(function (taskGroups) {
                $scope.taskGroups = taskGroups;
-               $scope.selectedGroup =
-                 $scope.selectedGroup || taskGroups[0];
+               $scope.selectedGroup = $scope.selectedGroup || taskGroups[0];
              });
 
      $scope.submitForm = function () {

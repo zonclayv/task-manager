@@ -1,7 +1,24 @@
 angular
-  .module('app').controller('ProfileController',
+  .module('app').controller('ProfileCtrl',
   ['$stateParams', '$scope', 'User', '$state', 'FileUploader', 'Container',
    function ($stateParams, $scope, User, $state, FileUploader, Container) {
+
+     var newImageItem;
+
+     var uploader = $scope.uploader = new FileUploader({
+       scope: $scope,
+       url: '',
+       formData: [
+         {key: 'value'}
+       ]
+     });
+
+     uploader.filters.push({
+       name: 'filterName',
+       fn: function () {
+         return true;
+       }
+     });
 
      function getUser() {
        User
@@ -26,23 +43,6 @@ angular
      }
 
      getUser();
-
-     var newImageItem;
-
-     var uploader = $scope.uploader = new FileUploader({
-       scope: $scope,
-       url: '',
-       formData: [
-         {key: 'value'}
-       ]
-     });
-
-     uploader.filters.push({
-       name: 'filterName',
-       fn: function () {
-         return true;
-       }
-     });
 
      uploader.onAfterAddingFile = function (item) {
        newImageItem = item;

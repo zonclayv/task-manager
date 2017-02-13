@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('AllTasksController',
+  .controller('AllTasksCtrl',
   ['$scope', 'TaskGroup', 'Task', function ($scope, TaskGroup, Task) {
 
     var getTaskGroup = function () {
@@ -18,10 +18,12 @@ angular
     $scope.getTasks = function (group) {
       $scope.currentGroup = group;
       $scope.tasks = Task.find({
-        where: {
-          groupId: group.id
-        },
-        order: 'status DESC'
+        filter: {
+          where: {
+            groupId: group.id
+          },
+          order: 'status DESC'
+        }
       });
     };
 

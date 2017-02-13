@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('DeleteTaskController',
+  .controller('DeleteTaskCtrl',
   ['$scope', 'Task', '$state', '$stateParams', function ($scope, Task, $state, $stateParams) {
     Task
       .deleteById({id: $stateParams.id})

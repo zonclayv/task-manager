@@ -1,14 +1,14 @@
 angular
   .module('app')
-  .controller('MyTasksController',
+  .controller('MyTasksCtrl',
   ['AuthService', '$scope', 'TaskGroup', 'Task', function (AuthService, $scope, TaskGroup, Task) {
 
     var getTaskGroup = function () {
       $scope.taskGroups = TaskGroup.find({
-        where: {
-          userId: AuthService.getCurrentUser().id
-        },
         filter: {
+          where: {
+            userId: AuthService.getCurrentUser().id
+          },
           include: ['user']
         }
       });
@@ -19,10 +19,12 @@ angular
     $scope.getTasks = function (group) {
       $scope.currentGroup = group;
       $scope.tasks = Task.find({
-        where: {
-          groupId: group.id
-        },
-        order: 'status DESC'
+        filter: {
+          where: {
+            groupId: group.id
+          },
+          order: 'status DESC'
+        }
       });
     };
 

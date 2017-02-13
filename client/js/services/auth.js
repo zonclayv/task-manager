@@ -1,6 +1,7 @@
 angular
   .module('app')
-  .factory('AuthService', ['User', '$q', '$rootScope', '$state', function (User, $q, $rootScope, $state) {
+  .factory('AuthService',
+  ['User', '$q', '$rootScope', function (User, $q, $rootScope) {
 
     function checkAuthority() {
       User.getRoles({id: $rootScope.currentUser.id}, function (response) {
@@ -17,7 +18,6 @@ angular
         .login({email: email, password: password})
         .$promise
         .then(function (response) {
-
           $rootScope.currentUser = {
             id: response.user.id,
             tokenId: response.id,
@@ -33,8 +33,8 @@ angular
         .logout()
         .$promise
         .then(function () {
-          $rootScope.currentUser = null;
-        });
+                $rootScope.currentUser = null;
+              });
     }
 
     function register(email, password) {
