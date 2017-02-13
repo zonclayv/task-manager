@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4" ng-show="taskGroups">
+  <div class="col-md-4" ng-show="taskGroups.length && taskGroups.length>0">
     <div class=" row border-bottom padding-sm" style="height: 40px;">
       Groups
     </div>
@@ -14,7 +14,7 @@
       </a>
     </div>
   </div>
-  <div class="col-md-8" ng-show="tasks">
+  <div class="col-md-8" ng-show="tasks.length && tasks.length>0">
     <div class=" row border-bottom padding-sm" style="height: 40px;">
       Tasks
     </div>

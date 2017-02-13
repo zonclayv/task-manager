@@ -1,7 +1,5 @@
 'use strict';
 
-var CONTAINERS_URL = '/api/containers/';
-
 module.exports = function (User) {
   User.getRoles = function (id, cb) {
     var loopback = require('loopback');
@@ -9,7 +7,9 @@ module.exports = function (User) {
     var RoleMapping = loopback.getModel('RoleMapping');
 
     RoleMapping.find({
-      where: {principalType: RoleMapping.USER, principalId: id},
+      filter: {
+        where: {principalType: RoleMapping.USER, principalId: id}
+      },
       include: ['role']
     }, function (err, mappings) {
       if (err) {

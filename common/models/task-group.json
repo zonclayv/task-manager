@@ -22,20 +22,9 @@
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "userId"
-    },
-    "tasks": {
-      "type": "hasMany",
-      "model": "Task",
-      "foreignKey": ""
     }
   },
-  "mixins": {
-    "CascadeDelete": {
-      "relations": [
-        "tasks"
-      ]
-    }
-  },
+  "mixins": {},
   "acls": [
     {
       "accessType": "WRITE",

@@ -19,7 +19,7 @@ angular
               return;
             }
 
-            $state.go('my-tasks');
+            $state.go('home');
           });
       };
     }])
@@ -27,7 +27,7 @@ angular
     function ($scope, AuthService, $state) {
       AuthService.logout()
         .then(function () {
-          $state.go('all-task');
+          $state.go('home');
         });
     }])
   .controller('SignUpController', ['$scope', 'AuthService', '$state',
@@ -41,8 +41,8 @@ angular
           });
       };
     }])
-  .controller('AllUsersController', ['$scope', 'User', '$state',
-    function ($scope, User, $state) {
+  .controller('AllUsersController', ['$scope', 'User',
+    function ($scope, User) {
 
       function getUsers() {
         User
@@ -55,47 +55,6 @@ angular
 
       getUsers();
 
-      $scope.selectUser = function (user) {
-
-        $scope.selectedUser = null;
-
-        User
-          .findById({id: user.id})
-          .$promise
-          .then(function (result) {
-            $scope.selectedUser = result;
-          });
-      };
-
-      $scope.imgChanged = function (element) {
-        var file = element.files[0];
-        User
-          .uploadImg({user: $scope.selectedUser.id}, {ctx: file})
-          .$promise
-          .then(function () {
-            console.log('file uploaded!');
-          });
-      };
-
-      $scope.saveUser = function () {
-        var user = $scope.selectedUser;
-        User.updateAll(
-          {where: {id: user.id}},
-          {
-            firstname: user.firstname,
-            lastname: user.lastname,
-            email: user.email
-          },
-          function (err, results) {
-            getUsers();
-            $scope.selectedUser = null;
-          });
-      };
-
-      $scope.cancel = function () {
-        $scope.selectedUser = null;
-      };
-
       $scope.removeUser = function (user) {
         User
           .deleteById(user)
@@ -105,11 +64,15 @@ angular
           });
       };
 
+      $scope.getAvatar = function(user){
+        return '/api/containers/' + user.id + '/download/' + user.picture;
+      }
+
     }])
   .controller('ProfileController', ['$stateParams', '$scope', 'User', '$state', 'FileUploader', 'Container',
     function ($stateParams, $scope, User, $state, FileUploader, Container) {
 
-      function getCurrentUser() {
+      function getUser() {
         User
           .findById({id: $stateParams.id})
           .$promise
@@ -126,12 +89,12 @@ angular
         User.updateAll(
           {where: {id: userId}},
           props,
-          function (err, results) {
-            getCurrentUser();
+          function () {
+            getUser();
           });
       }
 
-      getCurrentUser();
+      getUser();
 
       var newImageItem;
 
@@ -145,8 +108,7 @@ angular
 
       uploader.filters.push({
         name: 'filterName',
-        fn: function (item, options) {
-          console.info('filter2');
+        fn: function () {
           return true;
         }
       });
@@ -155,7 +117,7 @@ angular
         newImageItem = item;
       };
 
-      uploader.onSuccessItem = function (item, response, status, headers) {
+      uploader.onSuccessItem = function (item, response) {
         newImageItem = null;
 
         if (response.result[0]._id) {
@@ -188,8 +150,7 @@ angular
       };
 
       $scope.cancel = function () {
-        newImageItem = null;
-        getCurrentUser();
+        $state.go('home');
       };
 
     }]);

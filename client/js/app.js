@@ -13,6 +13,10 @@ angular
         controller: 'AddTaskController',
         authenticate: true
       })
+      .state('home', {
+        url: '/',
+        templateUrl: 'views/home.html'
+      })
       .state('add-task-group', {
         url: '/add-task-group',
         templateUrl: 'views/task-group-form.html',
@@ -76,7 +80,7 @@ angular
         controller: 'ProfileController',
         authenticate: true
       });
-    $urlRouterProvider.otherwise('my-tasks');
+    $urlRouterProvider.otherwise('home');
   }])
   .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService', function($rootScope, $state, LoopBackAuth, AuthService) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {

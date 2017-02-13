@@ -17,20 +17,9 @@
     }
   },
   "validations": [],
-  "relations": {
-    "groups": {
-      "type": "hasMany",
-      "model": "TaskGroup",
-      "foreignKey": ""
-    }
-  },
-  "mixins": {
-    "CascadeDelete": {
-      "relations": [
-        "groups"
-      ]
-    }
-  },
+  "relations": {},
+  "groups": {},
+  "mixins": {},
   "acls": [
     {
       "accessType": "EXECUTE",

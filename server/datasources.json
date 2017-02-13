@@ -4,12 +4,12 @@
     "connector": "memory"
   },
   "mydb": {
+    "name": "mydb",
     "host": "localhost",
     "port": 27017,
     "database": "task-manager",
     "username": "root",
     "password": "root",
-    "name": "mydb",
     "connector": "mongodb"
   },
   "container": {
