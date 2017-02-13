@@ -1,7 +1,7 @@
 angular
   .module('app')
   .controller('AddTaskGroupController',
-  ['$rootScope', '$scope', 'TaskGroup', '$state', function ($rootScope, $scope, TaskGroup, $state) {
+  ['AuthService', '$scope', 'TaskGroup', '$state', function (AuthService, $scope, TaskGroup, $state) {
 
     $scope.action = 'Add';
     $scope.taskGroup = {};
@@ -11,7 +11,7 @@ angular
       TaskGroup
         .create({
           title: $scope.taskGroup.title,
-          userId: $rootScope.currentUser.id
+          userId: AuthService.getCurrentUser().id
         })
         .$promise
         .then(function () {

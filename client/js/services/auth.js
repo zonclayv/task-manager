@@ -8,6 +8,10 @@ angular
       });
     }
 
+    function getCurrentUser() {
+      return $rootScope.currentUser;
+    }
+
     function login(email, password) {
       return User
         .login({email: email, password: password})
@@ -59,6 +63,7 @@ angular
       login: login,
       logout: logout,
       register: register,
-      refresh: refresh
+      refresh: refresh,
+      getCurrentUser: getCurrentUser
     };
   }]);

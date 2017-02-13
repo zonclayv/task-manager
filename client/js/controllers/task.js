@@ -1,7 +1,7 @@
 angular
   .module('app')
-  .controller('TasksController', ['$rootScope', '$scope', 'TaskGroup', 'Task',
-     function ($rootScope, $scope, TaskGroup, Task) {
+  .controller('TasksController', ['$scope', 'TaskGroup', 'Task',
+     function ($scope, TaskGroup, Task) {
 
        var getTaskGroup = function () {
        };
@@ -36,8 +36,8 @@ angular
        };
      }])
 
-  .controller('AllTasksController', ['$rootScope', '$scope', 'TaskGroup', '$controller',
-    function ($rootScope, $scope, TaskGroup, $controller) {
+  .controller('AllTasksController', ['$scope', 'TaskGroup', '$controller',
+    function ($scope, TaskGroup, $controller) {
 
       angular.extend(this, $controller('TasksController', {$scope: $scope}));
 
@@ -52,15 +52,15 @@ angular
       getTaskGroup();
 
     }])
-  .controller('MyTasksController', ['$rootScope', '$scope', 'TaskGroup', '$controller',
-    function ($rootScope, $scope, TaskGroup, $controller) {
+  .controller('MyTasksController', ['AuthService', '$scope', 'TaskGroup', '$controller',
+    function (AuthService, $scope, TaskGroup, $controller) {
 
       angular.extend(this, $controller('TasksController', {$scope: $scope}));
 
       var getTaskGroup = function () {
-        $scope.taskGroups = TaskGroup.find({
+       TaskGroup.find({
           where: {
-            userId: $rootScope.currentUser.id
+            userId: AuthService.getCurrentUser().id
           },
           include: ['user']
         });
@@ -69,8 +69,8 @@ angular
       getTaskGroup();
 
     }])
-  .controller('AddTaskController', ['$rootScope', '$scope', 'TaskGroup', 'Task','$state',
-  function ($rootScope, $scope, TaskGroup, Task, $state) {
+  .controller('AddTaskController', ['AuthService', '$scope', 'TaskGroup', 'Task','$state',
+  function (AuthService, $scope, TaskGroup, Task, $state) {
       $scope.action = 'Add';
       $scope.taskGroups = [];
       $scope.task = {};
@@ -79,7 +79,7 @@ angular
       TaskGroup
         .find({
             where: {
-              userId: $rootScope.currentUser.id
+              userId: AuthService.getCurrentUser().id
             }
         })
         .$promise
@@ -110,8 +110,8 @@ angular
           $state.go('my-tasks');
         });
     }])
-  .controller('EditTaskController', ['$rootScope', '$scope', '$q', 'TaskGroup', 'Task',
-  '$stateParams', '$state', function ($rootScope, $scope, $q, TaskGroup, Task,
+  .controller('EditTaskController', ['$scope', '$q', 'TaskGroup', 'Task',
+  '$stateParams', '$state', function ($scope, $q, TaskGroup, Task,
                                       $stateParams, $state) {
     $scope.action = 'Edit';
     $scope.taskGroups = [];
