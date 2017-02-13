@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="list-group col-md-8">
+  <div class="list-group col-md-6 col-md-offset-3">
     <div class="row">
       <div class="col-lg-12">
         <div class="main-box no-header clearfix">
@@ -11,6 +11,7 @@
                   <td>
                     <img ng-src="{{user.picture ? getAvatar(user) : 'img/no-image.png'}}" alt="">
                     {{::user.firstname}} {{::user.lastname}}
+                    <br/>
                     <span class="user-subhead">{{::user.email}}</span>
                   </td>
                   <td style="width: 20%;">

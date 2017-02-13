@@ -38,7 +38,8 @@ body {
 }
 
 .table a.table-link {
-  font-size: 1.6em;
+  font-size: 1.4em;
+  margin-left: 10px;
 }
 
 .label {
@@ -80,6 +81,6 @@ body {
   font-weight: 400;
 }
 
-.avatar{
+.avatar {
   max-width: 150px;
 }
