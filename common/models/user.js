@@ -7,9 +7,7 @@ module.exports = function (User) {
     var RoleMapping = loopback.getModel('RoleMapping');
 
     RoleMapping.find({
-      filter: {
-        where: {principalType: RoleMapping.USER, principalId: id}
-      },
+      where: {principalType: RoleMapping.USER, principalId: id},
       include: ['role']
     }, function (err, mappings) {
       if (err) {

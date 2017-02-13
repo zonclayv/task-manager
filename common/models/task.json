@@ -25,7 +25,7 @@
     "taskGroup": {
       "type": "belongsTo",
       "model": "TaskGroup",
-      "foreignKey": ""
+      "foreignKey": "groupId"
     }
   },
   "acls": [
