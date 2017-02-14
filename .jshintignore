@@ -1,3 +1,4 @@
 /client/vendor/
 /client/js/services/lb-services.js
 /node_modules/
+/tests/
