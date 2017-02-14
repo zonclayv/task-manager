@@ -16,7 +16,7 @@ module.exports = function (app) {
     }
 
     if (user.length) {
-      return
+      return;
     }
 
     initProperties();
