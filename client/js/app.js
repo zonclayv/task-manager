@@ -84,22 +84,22 @@ angular
 
   }])
   .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService',
-        function ($rootScope, $state, LoopBackAuth, AuthService) {
-          $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+    function ($rootScope, $state, LoopBackAuth, AuthService) {
+      $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
 
-            if (toState.authenticate && !LoopBackAuth.accessTokenId) {
-              event.preventDefault();
+        if (toState.authenticate && !LoopBackAuth.accessTokenId) {
+          event.preventDefault();
 
-              $rootScope.returnTo = {
-                state: toState,
-                params: toParams
-              };
+          $rootScope.returnTo = {
+            state: toState,
+            params: toParams
+          };
 
-              $state.go('forbidden');
-            }
-          });
+          $state.go('forbidden');
+        }
+      });
 
-          if (LoopBackAuth.accessTokenId && !$rootScope.currentUser) {
-            AuthService.refresh(LoopBackAuth.accessTokenId);
-          }
-        }]);
+      if (LoopBackAuth.accessTokenId && !$rootScope.currentUser) {
+        AuthService.refresh(LoopBackAuth.accessTokenId);
+      }
+    }]);

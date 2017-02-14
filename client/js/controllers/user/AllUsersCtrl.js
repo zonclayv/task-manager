@@ -7,8 +7,8 @@ angular
         .find()
         .$promise
         .then(function (results) {
-                $scope.users = results;
-              });
+          $scope.users = results;
+        });
     }
 
     getUsers();
@@ -18,8 +18,8 @@ angular
         .deleteById(user)
         .$promise
         .then(function () {
-                getUsers();
-              });
+          getUsers();
+        });
     };
 
     $scope.getAvatar = function (user) {

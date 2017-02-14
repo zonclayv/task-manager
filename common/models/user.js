@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function (User) {
+
   User.getRoles = function (id, cb) {
     var loopback = require('loopback');
     var Role = loopback.getModel('Role');
