@@ -30,7 +30,7 @@ describe('REST API request', function () {
   it('should login non-admin and get the TaskGroups', function (done) {
     json('post', '/api/users/login')
       .send({
-        email: 't@t.c',
+        email: 'user@test.com',
         password: '1'
       })
       .expect(200, function (err, res) {
