@@ -6,3 +6,7 @@ docker run -d -p 27017:27017 --name mongodb mongo
 // docker run -it --link mongodb:db mongo mongorestore -h db -db task-manager ./build/dump
 
 mongorestore --db task-manager /home/haidash/work/project/task-manager/build/backend/dump
+
+mongo
+use task-manager
+db.createUser({user: 'root', pwd: 'root', roles:[{role:'dbOwner',db:'task-manager'}]})
