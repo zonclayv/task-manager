@@ -37,9 +37,10 @@ body {
   border-radius: 3px;
 }
 
-.table a.table-link {
-  font-size: 1.4em;
+.table-link {
+  font-size: 16px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .label {

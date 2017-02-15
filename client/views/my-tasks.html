@@ -4,7 +4,7 @@
       <a class="list-group-item list-item clearfix" ng-repeat="group in taskGroups" ng-click="getTasks(group);">
         {{::group.title}}
         <span class="pull-right">
-          <span class="btn btn-xs btn-default" ng-click="markAsCompleted(group);">
+          <span class="table-link" ng-click="markAsCompleted(group);">
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
           </span>
         </span>
@@ -18,10 +18,10 @@
         <div class="row">
           <span class="task-title">{{::task.title}}</span>
           <span class="pull-right">
-            <span class="btn btn-xs btn-default" ng-show="task.status == 0" ui-sref="edit-task({ userId: currentGroup.user.id, id: task.id })">
+            <span class="table-link" ng-show="task.status == 0" ui-sref="edit-task({ userId: currentGroup.user.id, id: task.id })">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             </span>
-            <span class="btn btn-xs btn-default" ng-show="task.status == 0" ng-click="complete(task);">
+            <span class="table-link" ng-show="task.status == 0" ng-click="complete(task);">
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </span>
           </span>

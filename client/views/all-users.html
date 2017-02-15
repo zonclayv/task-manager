@@ -15,12 +15,12 @@
                     <span class="user-subhead">{{::user.email}}</span>
                   </td>
                   <td style="width: 20%;">
-                    <a href="#" class="table-link"  ui-sref="profile({ id: user.id })">
+                    <span class="table-link"  ui-sref="profile({ id: user.id })">
                       <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    </a>
-                    <a href="#" ng-hide="user.id == currentUser.id" class="table-link" ng-click="removeUser(user);">
+                    </span>
+                    <span ng-hide="user.id == currentUser.id" class="table-link" ng-click="removeUser(user);">
                       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </a>
+                    </span>
                   </td>
                 </tr>
                 </tbody>
