@@ -5,6 +5,8 @@
   "options": {
     "validateUpsert": true
   },
+  "groups": {},
+  "mixins": {},
   "properties": {
     "firstname": {
       "type": "string"
@@ -18,8 +20,6 @@
   },
   "validations": [],
   "relations": {},
-  "groups": {},
-  "mixins": {},
   "acls": [
     {
       "accessType": "EXECUTE",

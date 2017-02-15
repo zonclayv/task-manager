@@ -5,6 +5,7 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {},
   "properties": {
     "title": {
       "type": "string",
@@ -24,7 +25,6 @@
       "foreignKey": "userId"
     }
   },
-  "mixins": {},
   "acls": [
     {
       "accessType": "*",

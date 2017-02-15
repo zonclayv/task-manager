@@ -4,21 +4,21 @@
     "connector": "memory"
   },
   "mydb": {
-    "name": "mydb",
     "host": "localhost",
     "port": 27017,
     "database": "task-manager",
     "username": "root",
     "password": "root",
+    "name": "mydb",
     "connector": "mongodb"
   },
   "container": {
-    "name": "container",
-    "connector": "loopback-component-storage-mongo",
     "host": "localhost",
     "port": 27017,
     "database": "task-manager",
     "username": "root",
-    "password": "root"
+    "password": "root",
+    "name": "container",
+    "connector": "loopback-component-storage-mongo"
   }
 }
