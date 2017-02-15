@@ -42,7 +42,7 @@ describe('REST API request', function () {
             var taskGroups = res.body;
             assert(Array.isArray(taskGroups), "not valid response body");
             assert(taskGroups[0].title);
-            assert.equal(taskGroups[0].title, 'user-group');
+            assert.equal(taskGroups[0].title, 'User Group Test 1');
             done();
           });
       });
@@ -63,8 +63,9 @@ describe('REST API request', function () {
 
         json('get', '/api/users/' + res.body.userId + '/roles?access_token=' + accessToken)
           .expect(200, function (err, res) {
-            var roles = res.body;
-            assert(Array.isArray(roles), "not valid response body");
+            assert(typeof res.body === 'object', "not valid response body");
+            var roles = res.body.roles;
+            assert(Array.isArray(roles), "roles not found");
             assert.equal(roles.length, 1);
             assert.equal(roles[0], "admin");
           });
