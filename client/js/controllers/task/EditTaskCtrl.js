@@ -10,8 +10,10 @@ angular
         $q
           .all([
             TaskGroup.find({
-              where: {
-                userId: $stateParams.userId
+              filter: {
+                where: {
+                  userId: $stateParams.userId
+                }
               }
             }).$promise,
             Task.findById({id: $stateParams.id}).$promise
