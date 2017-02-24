@@ -4,7 +4,8 @@ angular
     ['User', '$q', '$rootScope', function (User, $q, $rootScope) {
 
       function checkAuthority() {
-        User.prototype$__get__roles({"id": $rootScope.currentUser.id})
+        /*jshint camelcase: false */
+        User.prototype$__get__roles({'id': $rootScope.currentUser.id})
           .$promise
           .then(function (roles) {
             var hasAdminAuthority = false;
@@ -14,7 +15,7 @@ angular
                 if (el.name === 'admin') {
                   hasAdminAuthority = true;
                 }
-              })
+              });
             }
 
             $rootScope.currentUser.hasAdminAuthority = hasAdminAuthority;

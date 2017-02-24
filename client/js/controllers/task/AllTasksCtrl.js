@@ -6,7 +6,7 @@ angular
       var getTaskGroup = function () {
         $scope.taskGroups = TaskGroup.find({
           filter: {
-            include: ["owner", "tasks"]
+            include: ['owner', 'tasks']
           }
         });
       };

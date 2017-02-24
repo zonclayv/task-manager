@@ -9,7 +9,7 @@ angular
         $scope.isDisabled = false;
 
         $scope.submitForm = function () {
-          User.groups.create({"id": AuthService.getCurrentUser().id}, {
+          User.groups.create({'id': AuthService.getCurrentUser().id}, {
             title: $scope.taskGroup.title,
             ownerId: AuthService.getCurrentUser().id
           })

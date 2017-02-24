@@ -10,7 +10,7 @@ angular
         $q
           .all([
             User.groups({
-              "id": $stateParams.userId
+              'id': $stateParams.userId
             }).$promise,
             Task.findById({id: $stateParams.id}).$promise
           ])

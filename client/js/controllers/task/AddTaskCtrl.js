@@ -10,8 +10,8 @@ angular
 
 
         User.groups({
-          "id": AuthService.getCurrentUser().id, "filter": {
-            include: ["tasks"]
+          'id': AuthService.getCurrentUser().id, 'filter': {
+            include: ['tasks']
           }
         }).$promise
           .then(function (groups) {
@@ -20,7 +20,7 @@ angular
           });
 
         $scope.submitForm = function () {
-          TaskGroup.tasks.create({"id": $scope.selectedGroup.id}, {
+          TaskGroup.tasks.create({'id': $scope.selectedGroup.id}, {
             title: $scope.task.title,
             description: $scope.task.description,
             groupId: $scope.selectedGroup.id,
