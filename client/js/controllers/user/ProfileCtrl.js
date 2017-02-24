@@ -1,24 +1,7 @@
 angular
   .module('app').controller('ProfileCtrl',
-  ['$stateParams', '$scope', 'User', '$state', 'FileUploader', 'Container',
-    function ($stateParams, $scope, User, $state, FileUploader, Container) {
-
-      var newImageItem;
-
-      var uploader = $scope.uploader = new FileUploader({
-        scope: $scope,
-        url: '',
-        formData: [
-          {key: 'value'}
-        ]
-      });
-
-      uploader.filters.push({
-        name: 'filterName',
-        fn: function () {
-          return true;
-        }
-      });
+  ['$stateParams', '$scope', 'User', '$state',
+    function ($stateParams, $scope, User, $state) {
 
       function getUser() {
         User
@@ -26,58 +9,56 @@ angular
           .$promise
           .then(function (result) {
             $scope.selectedUser = result;
-            uploader.url = '/api/containers/' + result.id + '/upload';
-            if (result.picture) {
-              $scope.userImg = '/api/containers/' + result.id + '/download/' + result.picture;
-            }
-          });
-      }
-
-      function saveUser(userId, props) {
-        User.updateAll(
-          {where: {id: userId}},
-          props,
-          function () {
-            getUser();
           });
       }
 
       getUser();
 
-      uploader.onAfterAddingFile = function (item) {
-        newImageItem = item;
+      $scope.upload = function (file) {
+        Upload.upload({
+          url: 'upload/url',
+          data: {file: file, 'username': $scope.username}
+        }).then(function (resp) {
+          console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data)
+        }, function (resp) {
+          console.log('Error status: ' + resp.status);
+        }, function (evt) {
+          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+          console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
       };
 
-      uploader.onSuccessItem = function (item, response) {
-        newImageItem = null;
-
-        if (response.result[0]._id) {
-
-          var user = $scope.selectedUser;
-
-          if (user.picture) {
-            Container.removeFile({container: user.id, file: user.picture});
-          }
-
-          saveUser(user.id, {
-            picture: response.result[0].filename
-          });
-        }
+      $scope.fileChanged = function (file) {
+        $scope.file = file;
       };
 
       $scope.saveUser = function () {
 
-        if (newImageItem) {
-          newImageItem.upload();
+        var userAttr = {
+          firstname: $scope.selectedUser.firstname,
+          lastname: $scope.selectedUser.lastname,
+          email: $scope.selectedUser.email
+        };
+
+        if ($scope.file && $scope.file.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (readerEvt) {
+            var binaryString = readerEvt.target.result;
+            userAttr.picture = $scope.selectedUser.picture = btoa(binaryString);
+            User.updateAll(
+              {where: {id: $scope.selectedUser.id}},
+              userAttr,
+              function () {
+                getUser();
+              });
+          };
+
+          reader.readAsBinaryString($scope.file.files[0]);
+          return;
         }
 
-        var user = $scope.selectedUser;
-
-        saveUser(user.id, {
-          firstname: user.firstname,
-          lastname: user.lastname,
-          email: user.email
-        });
+        $scope.selectedUser.$prototype$patchAttributes(userAttr);
       };
 
       $scope.cancel = function () {

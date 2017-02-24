@@ -40,9 +40,5 @@
   "TaskGroup": {
     "dataSource": "mydb",
     "public": true
-  },
-  "Container": {
-    "dataSource": "container",
-    "public": true
   }
 }

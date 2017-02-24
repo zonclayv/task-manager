@@ -18,7 +18,7 @@
         <div class="row">
           <span class="task-title">{{::task.title}}</span>
           <span class="pull-right">
-            <span class="table-link" ng-show="task.status == 0" ui-sref="edit-task({ userId: currentGroup.user.id, id: task.id })">
+            <span class="table-link" ng-show="task.status == 0" ui-sref="edit-task({ userId: task.ownerId, id: task.id })">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             </span>
             <span class="table-link" ng-show="task.status == 0" ng-click="complete(task);">

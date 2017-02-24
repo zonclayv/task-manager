@@ -191,6 +191,287 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.User#prototype$__findById__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Find a related item by id for roles.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for roles
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `User` object.)
+             * </em>
+             */
+            "prototype$__findById__roles": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/roles/:fk",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#prototype$__destroyById__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Delete a related item by id for roles.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for roles
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+            "prototype$__destroyById__roles": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/roles/:fk",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#prototype$__updateById__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Update a related item by id for roles.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `fk` – `{*}` - Foreign key for roles
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `User` object.)
+             * </em>
+             */
+            "prototype$__updateById__roles": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/roles/:fk",
+              method: "PUT",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#prototype$__link__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Add a related item by id for roles.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `fk` – `{*}` - Foreign key for roles
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `User` object.)
+             * </em>
+             */
+            "prototype$__link__roles": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/roles/rel/:fk",
+              method: "PUT",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#prototype$__unlink__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Remove the roles relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for roles
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+            "prototype$__unlink__roles": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/roles/rel/:fk",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#prototype$__exists__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Check the existence of roles relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for roles
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `User` object.)
+             * </em>
+             */
+            "prototype$__exists__roles": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/roles/rel/:fk",
+              method: "HEAD",
+            },
+
+            // INTERNAL. Use User.groups.findById() instead.
+            "prototype$__findById__groups": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/groups/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use User.groups.destroyById() instead.
+            "prototype$__destroyById__groups": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/groups/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use User.groups.updateById() instead.
+            "prototype$__updateById__groups": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/groups/:fk",
+              method: "PUT",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.User#prototype$__get__accessTokens
              * @methodOf lbServices.User
              *
@@ -341,6 +622,186 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$__count__accessTokens": {
               url: urlBase + "/users/:id/accessTokens/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#prototype$__get__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Queries roles of user.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `filter` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `User` object.)
+             * </em>
+             */
+            "prototype$__get__roles": {
+              isArray: true,
+              url: urlBase + "/users/:id/roles",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#prototype$__create__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Creates a new instance in roles of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `User` object.)
+             * </em>
+             */
+            "prototype$__create__roles": {
+              url: urlBase + "/users/:id/roles",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#prototype$__delete__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Deletes all roles of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `where` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+            "prototype$__delete__roles": {
+              url: urlBase + "/users/:id/roles",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#prototype$__count__roles
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Counts roles of user.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "prototype$__count__roles": {
+              url: urlBase + "/users/:id/roles/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use User.groups() instead.
+            "prototype$__get__groups": {
+              isArray: true,
+              url: urlBase + "/users/:id/groups",
+              method: "GET",
+            },
+
+            // INTERNAL. Use User.groups.create() instead.
+            "prototype$__create__groups": {
+              url: urlBase + "/users/:id/groups",
+              method: "POST",
+            },
+
+            // INTERNAL. Use User.groups.destroyAll() instead.
+            "prototype$__delete__groups": {
+              url: urlBase + "/users/:id/groups",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use User.groups.count() instead.
+            "prototype$__count__groups": {
+              url: urlBase + "/users/:id/groups/count",
               method: "GET",
             },
 
@@ -1073,43 +1534,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
-            /**
-             * @ngdoc method
-             * @name lbServices.User#getRoles
-             * @methodOf lbServices.User
-             *
-             * @description
-             *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{string=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `roles` – `{string=}` -
-             */
-            "getRoles": {
-              url: urlBase + "/users/:id/roles",
+            // INTERNAL. Use Task.owner() instead.
+            "::get::Task::owner": {
+              url: urlBase + "/Tasks/:id/owner",
               method: "GET",
             },
 
-            // INTERNAL. Use TaskGroup.user() instead.
-            "::get::TaskGroup::user": {
-              url: urlBase + "/TaskGroups/:id/user",
+            // INTERNAL. Use TaskGroup.owner() instead.
+            "::get::TaskGroup::owner": {
+              url: urlBase + "/TaskGroups/:id/owner",
               method: "GET",
             },
 
@@ -1446,6 +1879,341 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "User";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.User.groups
+     * @header lbServices.User.groups
+     * @object
+     * @description
+     *
+     * The object `User.groups` groups methods
+     * manipulating `TaskGroup` instances related to `User`.
+     *
+     * Call {@link lbServices.User#groups User.groups()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#groups
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Queries groups of user.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `filter` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TaskGroup` object.)
+             * </em>
+             */
+        R.groups = function() {
+          var TargetResource = $injector.get("TaskGroup");
+          var action = TargetResource["::get::User::groups"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User.groups#count
+             * @methodOf lbServices.User.groups
+             *
+             * @description
+             *
+             * Counts groups of user.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.groups.count = function() {
+          var TargetResource = $injector.get("TaskGroup");
+          var action = TargetResource["::count::User::groups"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User.groups#create
+             * @methodOf lbServices.User.groups
+             *
+             * @description
+             *
+             * Creates a new instance in groups of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TaskGroup` object.)
+             * </em>
+             */
+        R.groups.create = function() {
+          var TargetResource = $injector.get("TaskGroup");
+          var action = TargetResource["::create::User::groups"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User.groups#createMany
+             * @methodOf lbServices.User.groups
+             *
+             * @description
+             *
+             * Creates a new instance in groups of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TaskGroup` object.)
+             * </em>
+             */
+        R.groups.createMany = function() {
+          var TargetResource = $injector.get("TaskGroup");
+          var action = TargetResource["::createMany::User::groups"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User.groups#destroyAll
+             * @methodOf lbServices.User.groups
+             *
+             * @description
+             *
+             * Deletes all groups of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `where` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.groups.destroyAll = function() {
+          var TargetResource = $injector.get("TaskGroup");
+          var action = TargetResource["::delete::User::groups"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User.groups#destroyById
+             * @methodOf lbServices.User.groups
+             *
+             * @description
+             *
+             * Delete a related item by id for groups.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for groups
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.groups.destroyById = function() {
+          var TargetResource = $injector.get("TaskGroup");
+          var action = TargetResource["::destroyById::User::groups"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User.groups#findById
+             * @methodOf lbServices.User.groups
+             *
+             * @description
+             *
+             * Find a related item by id for groups.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for groups
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TaskGroup` object.)
+             * </em>
+             */
+        R.groups.findById = function() {
+          var TargetResource = $injector.get("TaskGroup");
+          var action = TargetResource["::findById::User::groups"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User.groups#updateById
+             * @methodOf lbServices.User.groups
+             *
+             * @description
+             *
+             * Update a related item by id for groups.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - user id
+             *
+             *  - `fk` – `{*}` - Foreign key for groups
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TaskGroup` object.)
+             * </em>
+             */
+        R.groups.updateById = function() {
+          var TargetResource = $injector.get("TaskGroup");
+          var action = TargetResource["::updateById::User::groups"];
+          return action.apply(R, arguments);
+        };
 
 
         return R;
@@ -1477,6 +2245,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         urlBase + "/Tasks/:id",
           { 'id': '@id' },
           {
+
+            // INTERNAL. Use Task.owner() instead.
+            "prototype$__get__owner": {
+              url: urlBase + "/Tasks/:id/owner",
+              method: "GET",
+            },
 
             // INTERNAL. Use Task.taskGroup() instead.
             "prototype$__get__taskGroup": {
@@ -2040,6 +2814,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/Tasks/change-stream",
               method: "POST",
             },
+
+            // INTERNAL. Use TaskGroup.tasks.findById() instead.
+            "::findById::TaskGroup::tasks": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/TaskGroups/:id/tasks/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.destroyById() instead.
+            "::destroyById::TaskGroup::tasks": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/TaskGroups/:id/tasks/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.updateById() instead.
+            "::updateById::TaskGroup::tasks": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/TaskGroups/:id/tasks/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks() instead.
+            "::get::TaskGroup::tasks": {
+              isArray: true,
+              url: urlBase + "/TaskGroups/:id/tasks",
+              method: "GET",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.create() instead.
+            "::create::TaskGroup::tasks": {
+              url: urlBase + "/TaskGroups/:id/tasks",
+              method: "POST",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.createMany() instead.
+            "::createMany::TaskGroup::tasks": {
+              isArray: true,
+              url: urlBase + "/TaskGroups/:id/tasks",
+              method: "POST",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.destroyAll() instead.
+            "::delete::TaskGroup::tasks": {
+              url: urlBase + "/TaskGroups/:id/tasks",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.count() instead.
+            "::count::TaskGroup::tasks": {
+              url: urlBase + "/TaskGroups/:id/tasks/count",
+              method: "GET",
+            },
           }
         );
 
@@ -2292,6 +3125,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Task#owner
+             * @methodOf lbServices.Task
+             *
+             * @description
+             *
+             * Fetches belongsTo relation owner.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Task id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `User` object.)
+             * </em>
+             */
+        R.owner = function() {
+          var TargetResource = $injector.get("User");
+          var action = TargetResource["::get::Task::owner"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
              * @name lbServices.Task#taskGroup
              * @methodOf lbServices.Task
              *
@@ -2361,9 +3234,61 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use TaskGroup.user() instead.
-            "prototype$__get__user": {
-              url: urlBase + "/TaskGroups/:id/user",
+            // INTERNAL. Use TaskGroup.owner() instead.
+            "prototype$__get__owner": {
+              url: urlBase + "/TaskGroups/:id/owner",
+              method: "GET",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.findById() instead.
+            "prototype$__findById__tasks": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/TaskGroups/:id/tasks/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.destroyById() instead.
+            "prototype$__destroyById__tasks": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/TaskGroups/:id/tasks/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.updateById() instead.
+            "prototype$__updateById__tasks": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/TaskGroups/:id/tasks/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks() instead.
+            "prototype$__get__tasks": {
+              isArray: true,
+              url: urlBase + "/TaskGroups/:id/tasks",
+              method: "GET",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.create() instead.
+            "prototype$__create__tasks": {
+              url: urlBase + "/TaskGroups/:id/tasks",
+              method: "POST",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.destroyAll() instead.
+            "prototype$__delete__tasks": {
+              url: urlBase + "/TaskGroups/:id/tasks",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use TaskGroup.tasks.count() instead.
+            "prototype$__count__tasks": {
+              url: urlBase + "/TaskGroups/:id/tasks/count",
               method: "GET",
             },
 
@@ -2924,6 +3849,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
+            // INTERNAL. Use User.groups.findById() instead.
+            "::findById::User::groups": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/groups/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use User.groups.destroyById() instead.
+            "::destroyById::User::groups": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/groups/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use User.groups.updateById() instead.
+            "::updateById::User::groups": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/users/:id/groups/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use User.groups() instead.
+            "::get::User::groups": {
+              isArray: true,
+              url: urlBase + "/users/:id/groups",
+              method: "GET",
+            },
+
+            // INTERNAL. Use User.groups.create() instead.
+            "::create::User::groups": {
+              url: urlBase + "/users/:id/groups",
+              method: "POST",
+            },
+
+            // INTERNAL. Use User.groups.createMany() instead.
+            "::createMany::User::groups": {
+              isArray: true,
+              url: urlBase + "/users/:id/groups",
+              method: "POST",
+            },
+
+            // INTERNAL. Use User.groups.destroyAll() instead.
+            "::delete::User::groups": {
+              url: urlBase + "/users/:id/groups",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use User.groups.count() instead.
+            "::count::User::groups": {
+              url: urlBase + "/users/:id/groups/count",
+              method: "GET",
+            },
+
             // INTERNAL. Use Task.taskGroup() instead.
             "::get::Task::taskGroup": {
               url: urlBase + "/Tasks/:id/taskGroup",
@@ -3181,12 +4165,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.TaskGroup#user
+             * @name lbServices.TaskGroup#owner
              * @methodOf lbServices.TaskGroup
              *
              * @description
              *
-             * Fetches belongsTo relation user.
+             * Fetches belongsTo relation owner.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -3213,129 +4197,84 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `User` object.)
              * </em>
              */
-        R.user = function() {
+        R.owner = function() {
           var TargetResource = $injector.get("User");
-          var action = TargetResource["::get::TaskGroup::user"];
+          var action = TargetResource["::get::TaskGroup::owner"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.TaskGroup.tasks
+     * @header lbServices.TaskGroup.tasks
+     * @object
+     * @description
+     *
+     * The object `TaskGroup.tasks` groups methods
+     * manipulating `Task` instances related to `TaskGroup`.
+     *
+     * Call {@link lbServices.TaskGroup#tasks TaskGroup.tasks()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TaskGroup#tasks
+             * @methodOf lbServices.TaskGroup
+             *
+             * @description
+             *
+             * Queries tasks of TaskGroup.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - TaskGroup id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `filter` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Task` object.)
+             * </em>
+             */
+        R.tasks = function() {
+          var TargetResource = $injector.get("Task");
+          var action = TargetResource["::get::TaskGroup::tasks"];
           return action.apply(R, arguments);
         };
 
-
-        return R;
-      }]);
-
-/**
- * @ngdoc object
- * @name lbServices.Container
- * @header lbServices.Container
- * @object
- *
- * @description
- *
- * A $resource object for interacting with the `Container` model.
- *
- * ## Example
- *
- * See
- * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
- * for an example of using this object.
- *
- */
-  module.factory(
-    "Container",
-    [
-      'LoopBackResource', 'LoopBackAuth', '$injector', '$q',
-      function(LoopBackResource, LoopBackAuth, $injector, $q) {
-        var R = LoopBackResource(
-        urlBase + "/Containers/:id",
-          { 'id': '@id' },
-          {
-
             /**
              * @ngdoc method
-             * @name lbServices.Container#getContainers
-             * @methodOf lbServices.Container
+             * @name lbServices.TaskGroup.tasks#count
+             * @methodOf lbServices.TaskGroup.tasks
              *
              * @description
              *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
+             * Counts tasks of TaskGroup.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
+             *  - `id` – `{*}` - TaskGroup id
              *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *  - `options` – `{object=}` -
              *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
+             *  - `where` – `{object=}` - Criteria to match model instances
              *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Container` object.)
-             * </em>
-             */
-            "getContainers": {
-              isArray: true,
-              url: urlBase + "/Containers",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Container#getContainer
-             * @methodOf lbServices.Container
-             *
-             * @description
-             *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `container` – `{string=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Container` object.)
-             * </em>
-             */
-            "getContainer": {
-              url: urlBase + "/Containers/:container",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Container#destroyContainer
-             * @methodOf lbServices.Container
-             *
-             * @description
-             *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `container` – `{string=}` -
+             *  - `options` – `{object=}` -
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3349,36 +4288,34 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * Data properties:
              *
-             *  - `` – `{undefined=}` -
+             *  - `count` – `{number=}` -
              */
-            "destroyContainer": {
-              url: urlBase + "/Containers/:container",
-              method: "DELETE",
-            },
+        R.tasks.count = function() {
+          var TargetResource = $injector.get("Task");
+          var action = TargetResource["::count::TaskGroup::tasks"];
+          return action.apply(R, arguments);
+        };
 
             /**
              * @ngdoc method
-             * @name lbServices.Container#upload
-             * @methodOf lbServices.Container
+             * @name lbServices.TaskGroup.tasks#create
+             * @methodOf lbServices.TaskGroup.tasks
              *
              * @description
              *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
+             * Creates a new instance in tasks of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
+             *  - `id` – `{*}` - TaskGroup id
              *
              * @param {Object} postData Request data.
              *
-             *  - `container` – `{string=}` -
+             *  - `options` – `{object=}` -
              *
-             *  - `req` – `{object=}` -
+             *  - `data` – `{object=}` -
              *
-             *  - `res` – `{object=}` -
+             *  - `options` – `{object=}` -
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3390,29 +4327,37 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *   populated with the actual data once the response is returned
              *   from the server.
              *
-             * Data properties:
-             *
-             *  - `result` – `{object=}` -
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Task` object.)
+             * </em>
              */
-            "upload": {
-              url: urlBase + "/Containers/:container/upload",
-              method: "POST",
-            },
+        R.tasks.create = function() {
+          var TargetResource = $injector.get("Task");
+          var action = TargetResource["::create::TaskGroup::tasks"];
+          return action.apply(R, arguments);
+        };
 
             /**
              * @ngdoc method
-             * @name lbServices.Container#getFiles
-             * @methodOf lbServices.Container
+             * @name lbServices.TaskGroup.tasks#createMany
+             * @methodOf lbServices.TaskGroup.tasks
              *
              * @description
              *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
+             * Creates a new instance in tasks of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `container` – `{string=}` -
+             *  - `id` – `{*}` - TaskGroup id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
              *
              * @param {function(Array.<Object>,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3426,106 +4371,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Container` object.)
+             * This usually means the response is a `Task` object.)
              * </em>
              */
-            "getFiles": {
-              isArray: true,
-              url: urlBase + "/Containers/:container/files",
-              method: "GET",
-            },
+        R.tasks.createMany = function() {
+          var TargetResource = $injector.get("Task");
+          var action = TargetResource["::createMany::TaskGroup::tasks"];
+          return action.apply(R, arguments);
+        };
 
             /**
              * @ngdoc method
-             * @name lbServices.Container#removeFile
-             * @methodOf lbServices.Container
+             * @name lbServices.TaskGroup.tasks#destroyAll
+             * @methodOf lbServices.TaskGroup.tasks
              *
              * @description
              *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
+             * Deletes all tasks of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `container` – `{string=}` -
+             *  - `id` – `{*}` - TaskGroup id
              *
-             *  - `file` – `{string=}` -
+             *  - `options` – `{object=}` -
              *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *  - `where` – `{object=}` -
              *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `` – `{undefined=}` -
-             */
-            "removeFile": {
-              url: urlBase + "/Containers/:container/files/:file",
-              method: "DELETE",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Container#getFile
-             * @methodOf lbServices.Container
-             *
-             * @description
-             *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `container` – `{string=}` -
-             *
-             *  - `file` – `{string=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Container` object.)
-             * </em>
-             */
-            "getFile": {
-              url: urlBase + "/Containers/:container/files/:file",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Container#download
-             * @methodOf lbServices.Container
-             *
-             * @description
-             *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `container` – `{string=}` -
-             *
-             *  - `file` – `{string=}` -
-             *
-             *  - `res` – `{object=}` -
+             *  - `options` – `{object=}` -
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3539,26 +4411,132 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-            "download": {
-              url: urlBase + "/Containers/:container/download/:file",
-              method: "GET",
-            },
-          }
-        );
+        R.tasks.destroyAll = function() {
+          var TargetResource = $injector.get("Task");
+          var action = TargetResource["::delete::TaskGroup::tasks"];
+          return action.apply(R, arguments);
+        };
 
+            /**
+             * @ngdoc method
+             * @name lbServices.TaskGroup.tasks#destroyById
+             * @methodOf lbServices.TaskGroup.tasks
+             *
+             * @description
+             *
+             * Delete a related item by id for tasks.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - TaskGroup id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for tasks
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.tasks.destroyById = function() {
+          var TargetResource = $injector.get("Task");
+          var action = TargetResource["::destroyById::TaskGroup::tasks"];
+          return action.apply(R, arguments);
+        };
 
+            /**
+             * @ngdoc method
+             * @name lbServices.TaskGroup.tasks#findById
+             * @methodOf lbServices.TaskGroup.tasks
+             *
+             * @description
+             *
+             * Find a related item by id for tasks.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - TaskGroup id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for tasks
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Task` object.)
+             * </em>
+             */
+        R.tasks.findById = function() {
+          var TargetResource = $injector.get("Task");
+          var action = TargetResource["::findById::TaskGroup::tasks"];
+          return action.apply(R, arguments);
+        };
 
-
-        /**
-        * @ngdoc property
-        * @name lbServices.Container#modelName
-        * @propertyOf lbServices.Container
-        * @description
-        * The name of the model represented by this $resource,
-        * i.e. `Container`.
-        */
-        R.modelName = "Container";
-
+            /**
+             * @ngdoc method
+             * @name lbServices.TaskGroup.tasks#updateById
+             * @methodOf lbServices.TaskGroup.tasks
+             *
+             * @description
+             *
+             * Update a related item by id for tasks.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - TaskGroup id
+             *
+             *  - `fk` – `{*}` - Foreign key for tasks
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Task` object.)
+             * </em>
+             */
+        R.tasks.updateById = function() {
+          var TargetResource = $injector.get("Task");
+          var action = TargetResource["::updateById::TaskGroup::tasks"];
+          return action.apply(R, arguments);
+        };
 
 
         return R;

@@ -4,9 +4,21 @@ angular
     ['User', '$q', '$rootScope', function (User, $q, $rootScope) {
 
       function checkAuthority() {
-        User.getRoles({id: $rootScope.currentUser.id}, function (response) {
-          $rootScope.currentUser.hasAdminAuthority = (response.roles.indexOf('admin') !== -1);
-        });
+        User.prototype$__get__roles({"id": $rootScope.currentUser.id})
+          .$promise
+          .then(function (roles) {
+            var hasAdminAuthority = false;
+
+            if (roles) {
+              roles.find(function (el) {
+                if (el.name === 'admin') {
+                  hasAdminAuthority = true;
+                }
+              })
+            }
+
+            $rootScope.currentUser.hasAdminAuthority = hasAdminAuthority;
+          });
       }
 
       function getCurrentUser() {
@@ -21,7 +33,8 @@ angular
             $rootScope.currentUser = {
               id: response.user.id,
               tokenId: response.id,
-              email: email
+              email: email,
+              model: response
             };
 
             checkAuthority();
@@ -52,7 +65,8 @@ angular
             $rootScope.currentUser = {
               id: userResource.id,
               tokenId: accessTokenId,
-              email: userResource.email
+              email: userResource.email,
+              model: userResource
             };
 
             checkAuthority();

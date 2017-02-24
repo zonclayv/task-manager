@@ -19,17 +19,8 @@ module.exports = function (app) {
       return;
     }
 
-    initProperties();
     createUser();
   });
-
-  function initProperties() {
-    var ObjectID = RoleMapping.getDataSource().connector.getDefaultIdType();
-    RoleMapping.defineProperty('principalId', {
-      type: ObjectID
-    });
-
-  }
 
   function createUser() {
     User.create([{

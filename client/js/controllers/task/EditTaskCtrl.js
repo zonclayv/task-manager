@@ -1,20 +1,16 @@
 angular
   .module('app')
   .controller('EditTaskCtrl',
-    ['$scope', '$q', 'TaskGroup', 'Task', '$stateParams', '$state',
-      function ($scope, $q, TaskGroup, Task, $stateParams, $state) {
+    ['$scope', '$q', 'User', 'Task', '$stateParams', '$state',
+      function ($scope, $q, User, Task, $stateParams, $state) {
         $scope.action = 'Edit';
         $scope.taskGroups = [];
         $scope.task = {};
 
         $q
           .all([
-            TaskGroup.find({
-              filter: {
-                where: {
-                  userId: $stateParams.userId
-                }
-              }
+            User.groups({
+              "id": $stateParams.userId
             }).$promise,
             Task.findById({id: $stateParams.id}).$promise
           ])

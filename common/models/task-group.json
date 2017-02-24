@@ -7,22 +7,28 @@
   },
   "mixins": {},
   "properties": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "id": true,
+      "defaultFn": "guid"
+    },
     "title": {
       "type": "string",
       "required": true
-    },
-    "status": {
-      "type": "number",
-      "required": true,
-      "default": 0
     }
   },
   "validations": [],
   "relations": {
-    "user": {
+    "owner": {
       "type": "belongsTo",
       "model": "user",
-      "foreignKey": "userId"
+      "foreignKey": "ownerId"
+    },
+    "tasks": {
+      "type": "hasMany",
+      "model": "Task",
+      "foreignKey": "groupId"
     }
   },
   "acls": [
@@ -33,19 +39,7 @@
       "permission": "DENY"
     },
     {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "WRITE",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "READ",
+      "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$owner",
       "permission": "ALLOW"

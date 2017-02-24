@@ -1,9 +1,12 @@
 <div class="row">
   <div class="col-md-4 col-sm-6 col-xs-12">
     <div class="text-center">
-      <img ng-src="{{selectedUser.picture ? userImg : 'img/no-image.png'}}" class="avatar img-circle img-thumbnail">
-      <h6>Preferred size - 150px x 150px</h6>
-      <input type="file" class="text-center center-block well well-sm" nv-file-select="" uploader="uploader"/>
+      <img ng-src="{{selectedUser.picture ? 'data:image/JPEG;base64,'+ selectedUser.picture: 'img/no-image.png'}}"
+           class="avatar img-circle img-thumbnail">
+      <h6 ng-show="currentUser.hasAdminAuthority">Preferred size - 150px x 150px</h6>
+      <input ng-show="currentUser.hasAdminAuthority" type="file"
+             onchange="angular.element(this).scope().fileChanged(this)" class="text-center center-block well well-sm"
+             nv-file-select="" uploader="uploader"/>
     </div>
   </div>
   <div class="col-md-8 col-sm-6 col-xs-12 personal-info">

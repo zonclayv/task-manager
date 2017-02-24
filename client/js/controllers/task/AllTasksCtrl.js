@@ -6,9 +6,7 @@ angular
       var getTaskGroup = function () {
         $scope.taskGroups = TaskGroup.find({
           filter: {
-            include: [
-              'user'
-            ]
+            include: ["owner", "tasks"]
           }
         });
       };
@@ -16,15 +14,7 @@ angular
       getTaskGroup();
 
       $scope.getTasks = function (group) {
-        $scope.currentGroup = group;
-        $scope.tasks = Task.find({
-          filter: {
-            where: {
-              groupId: group.id
-            },
-            order: 'status DESC'
-          }
-        });
+        $scope.tasks = group.tasks;
       };
 
       $scope.complete = function (task) {
@@ -32,7 +22,7 @@ angular
           {where: {id: task.id}},
           {status: 1},
           function () {
-            $scope.getTasks($scope.currentGroup);
+            $scope.tasks = [];
           });
       };
 
@@ -42,7 +32,7 @@ angular
           {status: 1},
           function () {
             getTaskGroup();
-            $scope.getTasks($scope.currentGroup);
+            $scope.tasks = [];
           });
       };
     }]);

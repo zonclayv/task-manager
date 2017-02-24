@@ -7,6 +7,12 @@
   },
   "forceId": false,
   "properties": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "id": true,
+      "defaultFn": "guid"
+    },
     "title": {
       "type": "string",
       "required": true
@@ -22,6 +28,11 @@
   },
   "validations": [],
   "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "ownerId"
+    },
     "taskGroup": {
       "type": "belongsTo",
       "model": "TaskGroup",
@@ -30,19 +41,25 @@
   },
   "acls": [
     {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
       "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW"
     },
     {
-      "accessType": "WRITE",
+      "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$owner",
       "permission": "ALLOW"
     },
     {
-      "accessType": "WRITE",
+      "accessType": "*",
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW"
