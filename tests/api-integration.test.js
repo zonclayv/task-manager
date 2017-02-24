@@ -37,12 +37,11 @@ describe('REST API request', function () {
         assert(typeof res.body === 'object', "not valid response body");
         assert(res.body.id, 'must have an access token');
         var accessToken = res.body.id;
-        json('get', '/api/TaskGroups?access_token=' + accessToken + '&filter={"where":{"userId":"' + res.body.userId + '"}}')
+        json('get', '/api/users/'+res.body.userId+'/groups?access_token=' + accessToken)
           .expect(200, function (err, res) {
             var taskGroups = res.body;
             assert(Array.isArray(taskGroups), "not valid response body");
             assert(taskGroups[0].title);
-            assert.equal(taskGroups[0].title, 'User Group Test 1');
             done();
           });
       });
@@ -63,11 +62,9 @@ describe('REST API request', function () {
 
         json('get', '/api/users/' + res.body.userId + '/roles?access_token=' + accessToken)
           .expect(200, function (err, res) {
-            assert(typeof res.body === 'object', "not valid response body");
-            var roles = res.body.roles;
-            assert(Array.isArray(roles), "roles not found");
-            assert.equal(roles.length, 1);
-            assert.equal(roles[0], "admin");
+            assert(Array.isArray(res.body), "not valid response body");;
+            assert.equal(res.body.length, 1);
+            assert.equal(res.body[0].name, "admin");
           });
 
         json('get', '/api/TaskGroups?access_token=' + accessToken)
